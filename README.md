@@ -13,6 +13,8 @@ Both have SHA-256 checksums configured in `.mvn/wrapper/maven-wrapper.properties
 Run Renovate locally against this repo:
 
 ```bash
+cd your/local/renovate/clone
+
 # First install dependencies
 pnpm install
 
