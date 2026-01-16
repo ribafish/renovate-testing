@@ -13,20 +13,14 @@ Both have SHA-256 checksums configured in `.mvn/wrapper/maven-wrapper.properties
 Run Renovate locally against this repo:
 
 ```bash
-cd /Users/gasperkojek/Projects/OSS/renovate
+# First install dependencies
+pnpm install
 
-# Run Renovate in dry-run mode to see what updates would be made
-LOG_LEVEL=debug npx ts-node lib/renovate.ts --platform=local --dry-run /Users/gasperkojek/Projects/ribafish/renovate-testing
-```
-
-Or test with the built version:
-
-```bash
-# First build Renovate
+# Then build Renovate to verify it builds
 pnpm build
 
 # Then run
-LOG_LEVEL=debug node dist/renovate.js --platform=local --dry-run /Users/gasperkojek/Projects/ribafish/renovate-testing
+LOG_LEVEL=debug pnpm start  --platform=github --token=$(gh auth token) --pr-hourly-limit=0 ribafish/renovate-testing
 ```
 
 ## Expected Behavior
